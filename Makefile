@@ -16,7 +16,22 @@ includedir = $(prefix)/include
 libdir = $(prefix)/lib
 syslibdir = /lib
 
-SRCS = $(sort $(wildcard src/*/*.c))
+SRCS = $(sort $(wildcard src/thread/*.c) \
+              $(wildcard src/internal/*.c) \
+							$(wildcard src/string/*.c) \
+							$(wildcard src/unistd/*.c) \
+							$(wildcard src/stdio/*.c) \
+							$(wildcard src/ldso/*.c) \
+							$(wildcard src/fcntl/*.c) \
+							$(wildcard src/dirent/*.c) \
+							$(wildcard src/exit/*.c) \
+							$(wildcard src/malloc/*.c) \
+							$(wildcard src/errno/*.c) \
+							$(wildcard src/math/*.c) \
+							$(wildcard src/multibyte/*.c) \
+				)
+
+# SRCS = $(sort $(wildcard src/*/*.c))
 OBJS = $(SRCS:.c=.o)
 LOBJS = $(OBJS:.o=.lo)
 GENH = include/bits/alltypes.h

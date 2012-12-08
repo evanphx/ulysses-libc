@@ -1248,6 +1248,12 @@ int __dladdr (void *addr, Dl_info *info)
 {
 	return 0;
 }
+
+void *__dynlink(int argc, char **argv)
+{
+  int main();
+  return &main;
+}
 #endif
 
 char *dlerror()

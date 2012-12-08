@@ -31,17 +31,18 @@ static void do_setxid(void *p)
 
 int __setxid(int nr, int id, int eid, int sid)
 {
-	struct ctx c = { .nr = nr, .id = id, .eid = eid, .sid = sid };
-	switch (nr) {
-	case SYS_setuid:
-	case SYS_setreuid:
-	case SYS_setresuid:
-		c.rlim = 1;
-	}
-	__synccall(do_setxid, &c);
-	if (c.err) {
-		errno = c.err;
-		return -1;
-	}
-	return 0;
+  return -1;
+	/* struct ctx c = { .nr = nr, .id = id, .eid = eid, .sid = sid }; */
+	/* switch (nr) { */
+	/* case SYS_setuid: */
+	/* case SYS_setreuid: */
+	/* case SYS_setresuid: */
+		/* c.rlim = 1; */
+	/* } */
+	/* __synccall(do_setxid, &c); */
+	/* if (c.err) { */
+		/* errno = c.err; */
+		/* return -1; */
+	/* } */
+	/* return 0; */
 }
