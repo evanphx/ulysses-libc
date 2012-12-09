@@ -35,6 +35,8 @@
 
 #define SYS_brk 21
 
+#define SYS_exit_group 22
+
 // unistd
 #define SYS_access SYS_notimpl
 #define SYS_acct SYS_notimpl
@@ -116,7 +118,6 @@
 #define SYS_fallocate SYS_notimpl
 
 // exit
-#define SYS_exit_group SYS_notimpl
 
 // malloc
 //
