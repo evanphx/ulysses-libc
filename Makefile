@@ -29,6 +29,24 @@ SRCS = $(sort $(wildcard src/thread/*.c) \
 							$(wildcard src/errno/*.c) \
 							$(wildcard src/math/*.c) \
 							$(wildcard src/multibyte/*.c) \
+							$(wildcard src/mman/*.c) \
+							$(wildcard src/setjmp/*.c) \
+							$(wildcard src/time/*.c) \
+							$(wildcard src/env/*.c) \
+							$(wildcard src/fenv/*.c) \
+							$(wildcard src/signal/*.c) \
+							$(wildcard src/thread/*.c) \
+							$(wildcard src/misc/*.c) \
+							$(wildcard src/passwd/*.c) \
+							$(wildcard src/process/*.c) \
+							$(wildcard src/stdlib/*.c) \
+							$(wildcard src/ctype/*.c) \
+							$(wildcard src/locale/*.c) \
+							$(wildcard src/network/*.c) \
+							$(wildcard src/stat/*.c) \
+							$(wildcard src/linux/*.c) \
+							$(wildcard src/termios/*.c) \
+							$(wildcard src/select/*.c) \
 				)
 
 # SRCS = $(sort $(wildcard src/*/*.c))

@@ -1,12 +1,6 @@
 .text
 .global _start
 _start:
-  pop %edi
-  call main
-  push %eax
-  call exit
-
-_old_start:
 	xor %ebp,%ebp
 	pop %edi
 	mov %esp,%esi

@@ -9,7 +9,7 @@ __set_thread_area:
 	push $-1
 	mov %esp,%ebx
 	xor %eax,%eax
-	mov $243,%al
+	mov $23,%al
 	int $128
 	testl %eax,%eax
 	jnz 1f

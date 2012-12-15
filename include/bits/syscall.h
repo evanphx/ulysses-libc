@@ -37,6 +37,10 @@
 
 #define SYS_exit_group 22
 
+#define SYS_set_thread_area 23
+#define SYS_rt_sigprocmask 24
+#define SYS_set_tid_address 25
+
 // unistd
 #define SYS_access SYS_notimpl
 #define SYS_acct SYS_notimpl
@@ -99,8 +103,6 @@
 // thread
 #define SYS_futex SYS_notimpl
 #define SYS_tgkill SYS_notimpl
-#define SYS_set_tid_address SYS_notimpl
-#define SYS_rt_sigprocmask SYS_notimpl
 #define SYS_sched_setscheduler SYS_notimpl
 #define SYS_sched_getscheduler SYS_notimpl
 #define SYS_sched_getparam SYS_notimpl
@@ -120,7 +122,157 @@
 // exit
 
 // malloc
-//
+
+// mman
+#define SYS_madvise SYS_notimpl
+#define SYS_mincore SYS_notimpl
+#define SYS_mmap SYS_notimpl
+#define SYS_munmap SYS_notimpl
+#define SYS_mremap SYS_notimpl
+#define SYS_mlock SYS_notimpl
+#define SYS_munlock SYS_notimpl
+#define SYS_mlockall SYS_notimpl
+#define SYS_munlockall SYS_notimpl
+#define SYS_mprotect SYS_notimpl
+#define SYS_msync SYS_notimpl
+
+// time
+#define SYS_times SYS_notimpl
+#define SYS_utimes SYS_notimpl
+#define SYS_clock_getres SYS_notimpl
+#define SYS_gettimeofday SYS_notimpl
+#define SYS_clock_nanosleep SYS_notimpl
+#define SYS_clock_settime SYS_notimpl
+#define SYS_nanosleep SYS_notimpl
+#define SYS_timer_create SYS_notimpl
+#define SYS_timer_delete SYS_notimpl
+#define SYS_timer_getoverrun SYS_notimpl
+#define SYS_timer_gettime SYS_notimpl
+#define SYS_timer_settime SYS_notimpl
+
+// env
+#define SYS_poll SYS_notimpl
+
+// signal
+#define SYS_setitimer SYS_notimpl
+#define SYS_getitimer SYS_notimpl
+#define SYS_kill SYS_notimpl
+#define SYS_gettid SYS_notimpl
+#define SYS_rt_sigaction SYS_notimpl
+#define SYS_sigaltstack SYS_notimpl
+#define SYS_rt_sigpending SYS_notimpl
+#define SYS_rt_sigqueueinfo SYS_notimpl
+#define SYS_rt_sigsuspend SYS_notimpl
+#define SYS_rt_sigtimedwait SYS_notimpl
+
+// misc
+#define SYS_getpriority SYS_notimpl
+#define SYS_setpriority SYS_notimpl
+#define SYS_getresgid SYS_notimpl
+#define SYS_getresuid SYS_notimpl
+#define SYS_getrlimit SYS_notimpl
+#define SYS_setrlimit SYS_notimpl
+#define SYS_prlimit64 SYS_notimpl
+#define SYS_getrusage SYS_notimpl
+#define SYS_setdomainname SYS_notimpl
+#define SYS_uname SYS_notimpl
+
+// process
+#define SYS_execve SYS_notimpl
+#define SYS_waitpid SYS_notimpl
+#define SYS_waitid SYS_notimpl
+
+// network
+#define SYS_socketcall SYS_notimpl
+
+// stat
+#define SYS_chmod SYS_notimpl
+#define SYS_fchmod SYS_notimpl
+#define SYS_fchmodat SYS_notimpl
+#define SYS_fstat SYS_notimpl
+#define SYS_fstatat SYS_notimpl
+#define SYS_lstat SYS_notimpl
+#define SYS_mkdir SYS_notimpl
+#define SYS_mkdirat SYS_notimpl
+#define SYS_mknod SYS_notimpl
+#define SYS_mknodat SYS_notimpl
+#define SYS_stat SYS_notimpl
+#define SYS_statfs SYS_notimpl
+#define SYS_fstatfs SYS_notimpl
+#define SYS_umask SYS_notimpl
+#define SYS_utimensat SYS_notimpl
+
+// linux
+#define SYS_adjtimex SYS_notimpl
+#define SYS_capset SYS_notimpl
+#define SYS_capget SYS_notimpl
+#define SYS_chroot SYS_notimpl
+#define SYS_clock_adjtime SYS_notimpl
+#define SYS_epoll_create SYS_notimpl
+#define SYS_epoll_create1 SYS_notimpl
+#define SYS_epoll_ctl SYS_notimpl
+#define SYS_epoll_pwait SYS_notimpl
+#define SYS_epoll_wait SYS_notimpl
+#define SYS_eventfd2 SYS_notimpl
+#define SYS_eventfd SYS_notimpl
+#define SYS_flock SYS_notimpl
+
+#define SYS_inotify_init SYS_notimpl
+#define SYS_inotify_init1 SYS_notimpl
+#define SYS_inotify_add_watch SYS_notimpl
+#define SYS_inotify_rm_watch SYS_notimpl
+#define SYS_syslog SYS_notimpl
+#define SYS_init_module SYS_notimpl
+#define SYS_delete_module SYS_notimpl
+#define SYS_umount2 SYS_notimpl
+#define SYS_pivot_root SYS_notimpl
+#define SYS_ppoll SYS_notimpl
+#define SYS_prctl SYS_notimpl
+#define SYS_process_vm_writev SYS_notimpl
+#define SYS_process_vm_readv SYS_notimpl
+#define SYS_ptrace SYS_notimpl
+#define SYS_readahead SYS_notimpl
+#define SYS_reboot SYS_notimpl
+#define SYS_remap_file_pages SYS_notimpl
+#define SYS_sendfile SYS_notimpl
+#define SYS_setfsgid SYS_notimpl
+#define SYS_setfsuid SYS_notimpl
+#define SYS_setgroups SYS_notimpl
+#define SYS_sethostname SYS_notimpl
+#define SYS_setns SYS_notimpl
+#define SYS_settimeofday SYS_notimpl
+#define SYS_signalfd SYS_notimpl
+#define SYS_splice SYS_notimpl
+#define SYS_swapon SYS_notimpl
+#define SYS_swapoff SYS_notimpl
+#define SYS_syncfs SYS_notimpl
+#define SYS_sysinfo SYS_notimpl
+#define SYS_tee SYS_notimpl
+#define SYS_timerfd_create SYS_notimpl
+#define SYS_timerfd_settime SYS_notimpl
+#define SYS_timerfd_gettime SYS_notimpl
+#define SYS_unshare SYS_notimpl
+#define SYS_vhangup SYS_notimpl
+#define SYS_vmsplice SYS_notimpl
+
+#define SYS_getxattr SYS_notimpl
+#define SYS_lgetxattr SYS_notimpl
+#define SYS_fgetxattr SYS_notimpl
+#define SYS_listxattr SYS_notimpl
+#define SYS_llistxattr SYS_notimpl
+#define SYS_flistxattr SYS_notimpl
+#define SYS_setxattr SYS_notimpl
+#define SYS_lsetxattr SYS_notimpl
+#define SYS_fsetxattr SYS_notimpl
+#define SYS_removexattr SYS_notimpl
+#define SYS_lremovexattr SYS_notimpl
+#define SYS_fremovexattr SYS_notimpl
+
+// select
+#define SYS_pselect6 SYS_notimpl
+#define SYS_select SYS_notimpl
+
+
 /*
 #define __NR_restart_syscall      0
 #define __NR_exit		  1
